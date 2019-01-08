@@ -29,15 +29,24 @@ import java.util.*;
  */
 public class Solution {
 
-    /*
+    /**
+     * 存储最终结果的list
+     */
+    List<List<Integer>> resultList = new ArrayList<>();
+
+    /**
      * 使用队列
      * 使用Pair来标记node和层数的映射关系（Pair是一种非常简易的键值映射关系数据结构，非常方便）
-     * */
-    List<List<Integer>> resultList = new ArrayList<>();
+     *
+     * @param root
+     * @return
+     */
     public List<List<Integer>> levelOrder(TreeNode root) {
+        //特殊情况
         if (root == null){
             return resultList;
         }
+        //遍历使用的队列
         Queue<Pair<TreeNode,Integer>> queue = new LinkedList<>();
         queue.add(new Pair<>(root, 0));
         while (!queue.isEmpty()){
